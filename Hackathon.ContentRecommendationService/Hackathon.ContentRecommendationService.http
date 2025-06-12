@@ -1,0 +1,6 @@
+@Hackathon.ContentRecommendationService_HostAddress = http://localhost:5018
+
+GET {{Hackathon.ContentRecommendationService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

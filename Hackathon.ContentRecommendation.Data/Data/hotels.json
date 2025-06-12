@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Hotel Sunshine",
+    "city": "New York",
+    "price": 120.0,
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "Ocean View",
+    "city": "Los Angeles",
+    "price": 150.0,
+    "rating": 4.0
+  },
+  {
+    "id": 3,
+    "name": "Mountain Inn",
+    "city": "Denver",
+    "price": 90.0,
+    "rating": 3.8
+  }
+]
