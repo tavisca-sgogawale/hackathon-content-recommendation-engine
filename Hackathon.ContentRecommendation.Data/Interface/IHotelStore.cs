@@ -5,5 +5,6 @@ namespace Hackathon.ContentRecommendation.Data
     public interface IHotelStore
     {
         IEnumerable<Hotel> GetHotels();
+        IEnumerable<RealHotel> GetRealHotels();
     }
 }

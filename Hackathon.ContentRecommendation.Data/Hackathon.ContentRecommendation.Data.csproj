@@ -9,10 +9,14 @@
 
   <ItemGroup>
     <None Remove="Data\hotels.json" />
+    <None Remove="Data\real_hotels.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Data\hotels.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\real_hotels.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

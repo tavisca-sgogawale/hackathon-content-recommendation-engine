@@ -16,8 +16,16 @@ namespace Hackathon.ContentRecommendation.Api.Controllers
         [HttpGet]
         public IActionResult Get([FromQuery] string? city, [FromQuery] double? minPrice, [FromQuery] double? maxPrice, [FromQuery] double? minRating)
         {
-            var hotels = _hotelService.GetFilteredHotels(city, minPrice, maxPrice, minRating);
+            var hotels = _hotelService.GetFilteredRealHotels(city, minPrice, maxPrice, minRating);
+            //var hotels = _hotelService.GetFilteredHotels(city, minPrice, maxPrice, minRating);
             return Ok(hotels);
         }
+
+        //[HttpGet]
+        //public IActionResult Get([FromQuery] string? city, [FromQuery] double? minPrice, [FromQuery] double? maxPrice, [FromQuery] double? minRating)
+        //{
+        //    var hotels = _hotelService.GetFilteredRealHotels(city, minPrice, maxPrice, minRating);
+        //    return Ok(hotels);
+        //}
     }
 }

@@ -1,0 +1,144 @@
+[
+  {
+    "countryCode": "IN",
+    "countryName": "India",
+    "cityCode": 123,
+    "cityName": "Chennai",
+    "code": 001,
+    "name": "Grand Ocean Hotel",
+    "rating": 4.5,
+    "address": "123 Beach Road, Chennai, Tamil Nadu, India",
+    "attractions": [
+      "Marina Beach",
+      "Kapaleeshwarar Temple",
+      "Fort St. George"
+    ],
+    "description": "A luxurious 5-star beachfront hotel offering world-class amenities and breathtaking ocean views.",
+    "facilities": [
+      "Swimming Pool",
+      "Spa",
+      "Gym",
+      "Free Wi-Fi",
+      "Restaurant",
+      "Conference Room"
+    ],
+    "lat": 13.0827,
+    "long": 80.2707,
+    "phoneNumber": "+91-9876543210",
+    "pinCode": 600001,
+    "websiteUrl": "https://www.grandoceanhotel.com",
+    "imageUrl": "https://www.example.com/hotel_image.jpg"
+  },
+  {
+    "countryCode": "US",
+    "countryName": "United States",
+    "cityCode": 101,
+    "cityName": "Las Vegas",
+    "code": 001,
+    "name": "Bellagio Hotel & Casino",
+
+    "rating": 4.7,
+
+    "address": "3600 S Las Vegas Blvd, Las Vegas, NV 89109",
+
+    "attractions": [
+
+      "Fountains of Bellagio",
+
+      "The Strip",
+
+      "High Roller Observation Wheel"
+
+    ],
+
+    "description": "A luxury hotel and casino in Las Vegas, famous for its stunning fountains and world-class amenities.",
+
+    "facilities": [
+
+      "Casino",
+
+      "Spa",
+
+      "Fine Dining",
+
+      "Swimming Pool",
+
+      "Fitness Center",
+
+      "Free Wi-Fi"
+
+    ],
+
+    "lat": 36.1126,
+
+    "long": -115.1767,
+
+    "phoneNumber": "+1-702-693-7111",
+
+    "pinCode": 89109,
+
+    "websiteUrl": "[Bellagio](https://en.wikipedia.org/wiki/List_of_hotels_in_the_United_States)",
+
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Bellagio_Hotel_and_Casino.jpg"
+
+  },
+  {
+
+    "countryCode": "US",
+
+    "countryName": "United States",
+
+    "cityCode": 102,
+
+    "cityName": "New York",
+
+    "code": 002,
+
+    "name": "The Plaza Hotel",
+
+    "rating": 4.8,
+
+    "address": "768 5th Ave, New York, NY 10019",
+
+    "attractions": [
+
+      "Central Park",
+
+      "Times Square",
+
+      "Empire State Building"
+
+    ],
+
+    "description": "A historic luxury hotel in New York City, known for its elegance and prime location near Central Park.",
+
+    "facilities": [
+
+      "Spa",
+
+      "Fine Dining",
+
+      "Concierge Service",
+
+      "Fitness Center",
+
+      "Free Wi-Fi",
+
+      "Business Center"
+
+    ],
+
+    "lat": 40.7644,
+
+    "long": -73.9746,
+
+    "phoneNumber": "+1-212-759-3000",
+
+    "pinCode": 10019,
+
+    "websiteUrl": "[The Plaza](https://en.wikipedia.org/wiki/List_of_hotels_in_the_United_States)",
+
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/The_Plaza_Hotel_New_York.jpg"
+
+  }
+]
