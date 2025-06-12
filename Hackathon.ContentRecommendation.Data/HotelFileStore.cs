@@ -1,6 +1,9 @@
 ﻿using Hackathon.ContentRecommendation.Common.Models;
 using System.Reflection;
 using System.Text.Json;
+using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
+using Formatting = Newtonsoft.Json.Formatting;
 
 namespace Hackathon.ContentRecommendation.Data
 {
@@ -21,5 +24,22 @@ namespace Hackathon.ContentRecommendation.Data
             };
             Hotels = JsonSerializer.Deserialize<List<RealHotel>>(json, options) ?? new List<RealHotel>();
         }
+
+        //private static void InsertImages()
+        //{
+        //    string[] randomImageUrls = { };
+        //    Random random = new Random();
+        //    foreach (var hotel in Hotels)
+        //    {
+        //        hotel.ImageUrl = randomImageUrls[random.Next(randomImageUrls.Length)];
+        //    }
+        //    string outputFilePath = "updated_hotels.json";
+        //    // Serialize the updated list back to JSON
+        //    string updatedJsonData = JsonConvert.SerializeObject(Hotels, Formatting.Indented);
+
+        //    // Save the updated JSON back to the file
+        //    File.WriteAllText(outputFilePath, updatedJsonData);
+        //}
+
     }
 }

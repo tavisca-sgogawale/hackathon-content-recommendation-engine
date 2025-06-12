@@ -19,7 +19,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "https": {
+    "Hackathon.ContentRecommendation.Api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
