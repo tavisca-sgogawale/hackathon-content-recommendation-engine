@@ -18,12 +18,12 @@ namespace Hackathon.ContentRecommendation.Common.Models
         public string Address { get; set; } = string.Empty;
         public List<string> Attractions { get; set; } = [];
         public string Description { get; set; } = string.Empty;
-        public List<string> Facilities { get; set; } = [];
-        public long Long { get; set; }
+        public string Facilities { get; set; } = string.Empty;
         public long Lat { get; set; }
+        public long Long { get; set; }
         public string PhoneNumber { get; set; } = string.Empty;
         public int PinCode { get; set; }
         public string WebsiteUrl { get; set; } = string.Empty;
-        public string ImageUrl { get; set; } = string.Empty;
+        public string ImageUrl { get; set; }
     }
 }
