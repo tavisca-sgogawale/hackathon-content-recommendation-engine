@@ -5,47 +5,46 @@ namespace Hackathon.ContentRecommendation.Service
 {
     public class HotelService
     {
-        private readonly IHotelStore _hotelStore;
-        public HotelService(IHotelStore hotelStore)
+        //private readonly IHotelStore _hotelStore;
+        //public HotelService(IHotelStore hotelStore)
+        //{
+        //    _hotelStore = hotelStore;
+        //}
+        //public List<Hotel> GetFilteredHotels(string? city, double? minPrice, double? maxPrice, double? minRating)
+        //{
+        //    var hotels = _hotelStore.GetHotels();
+
+        //    var filteredHotels = hotels.Where(h =>
+        //    (string.IsNullOrEmpty(city) || h.City.Contains(city, StringComparison.OrdinalIgnoreCase)) &&
+        //    (!minPrice.HasValue || h.Price >= minPrice) &&
+        //    (!maxPrice.HasValue || h.Price <= maxPrice) &&
+        //    (!minRating.HasValue || h.Rating >= minRating)
+        //);
+
+        //    return filteredHotels.Take(5).ToList();
+        //}
+
+        public List<RealHotel> GetFilteredRealHotels(string? city, double? minPrice, double? maxPrice, double? minRating)
         {
-            _hotelStore = hotelStore;
+            var hotels = HotelFileStore.Hotels;
+            var filteredHotels = hotels.Where(h =>
+            (string.IsNullOrEmpty(city) || CityMatches(h.CityName, city)) &&
+            (!minPrice.HasValue || h.Price >= minPrice) &&
+            (!maxPrice.HasValue || h.Price <= maxPrice) &&
+            (!minRating.HasValue || h.Rating >= minRating)
+        );
+
+            return filteredHotels.Take(5).ToList();
+
+
         }
-        public IEnumerable<Hotel> GetFilteredHotels(string? city, double? minPrice, double? maxPrice, double? minRating)
+
+        private bool CityMatches(string hotelCity, string searchCityOrState)
         {
-            var hotels = _hotelStore.GetHotels();
+            var hotelParts = hotelCity.ToLower().Replace(",", "").Split(' ');
+            var searchCityParts = searchCityOrState.ToLower().Replace(",", "").Split(' ');
 
-            if (!string.IsNullOrEmpty(city))
-                hotels = hotels.Where(h => h.City.Equals(city, StringComparison.OrdinalIgnoreCase));
-
-            if (minPrice.HasValue)
-                hotels = hotels.Where(h => h.Price >= minPrice.Value);
-
-            if (maxPrice.HasValue)
-                hotels = hotels.Where(h => h.Price <= maxPrice.Value);
-
-            if (minRating.HasValue)
-                hotels = hotels.Where(h => h.Rating >= minRating.Value);
-
-            return hotels;
-        }
-
-        public IEnumerable<RealHotel> GetFilteredRealHotels(string? city, double? minPrice, double? maxPrice, double? minRating)
-        {
-            var hotels = _hotelStore.GetRealHotels();
-
-            //if (!string.IsNullOrEmpty(city))
-            //    hotels = hotels.Where(h => h.City.Equals(city, StringComparison.OrdinalIgnoreCase));
-
-            //if (minPrice.HasValue)
-            //    hotels = hotels.Where(h => h.Price >= minPrice.Value);
-
-            //if (maxPrice.HasValue)
-            //    hotels = hotels.Where(h => h.Price <= maxPrice.Value);
-
-            //if (minRating.HasValue)
-            //    hotels = hotels.Where(h => h.Rating >= minRating.Value);
-
-            return hotels;
+            return searchCityParts.All(part => hotelParts.Contains(part));
         }
     }
 }
