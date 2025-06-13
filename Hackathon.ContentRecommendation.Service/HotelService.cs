@@ -49,7 +49,7 @@ namespace Hackathon.ContentRecommendation.Service
 
             if (filterRequest.Tags != null && filterRequest.Tags.Any())
             {
-                return [.. filteredHotels.Where(x => x.Tags.Contains(filterRequest.Tags[0])).Take(pageSize)];
+                return [.. filteredHotels.Where(x => x.Tags != null && x.Tags.Any(t => filterRequest.Tags.Contains(t))).Take(pageSize)];
             }
 
             return [.. filteredHotels.Take(pageSize)];
