@@ -4,12 +4,20 @@ using System.Text.Json;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using Formatting = Newtonsoft.Json.Formatting;
+using Microsoft.VisualBasic;
 
 namespace Hackathon.ContentRecommendation.Data
 {
     public static class HotelFileStore
     {
         public static List<RealHotel> Hotels { get; private set; } = new List<RealHotel>();
+        private static Dictionary<string, List<string>> TAG_CATEGORIES = new Dictionary<string, List<string>>
+        {
+            { "business", new List<string> { "business-center", "concierge", "room-service", "wifi", "conference", "laundry", "elevator", "accessible", "quiet", "modern", "financial", "meeting", "corporate", "executive" } },
+            { "local", new List<string> { "wifi", "parking", "breakfast", "restaurant", "pet-friendly", "shopping", "nightlife", "budget", "traditional", "downtown", "city center", "mall", "boutique", "b&b", "inn" } },
+            { "average", new List<string> { "wifi", "gym", "pool", "breakfast", "restaurant", "balcony", "view", "modern", "family", "accessible", "air-conditioning", "kitchen", "suite", "apartment", "resort", "quiet" } },
+            { "premium", new List<string> { "spa", "luxury", "balcony", "view", "air-conditioning", "concierge", "romantic", "suite", "resort", "historic", "elegant", "deluxe", "premium", "upscale", "ocean view", "mountains", "seaside", "honeymoon", "wellness", "massage" } }
+        };
         public static void LoadHotels()
         {
             var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -71,25 +79,26 @@ namespace Hackathon.ContentRecommendation.Data
             File.WriteAllText(outputFilePath, updatedJsonData);
         }
 
-        private static void AddTags()
+        public static void AssignTags()
         {
+            Random random = new Random();
             foreach (var hotel in Hotels)
             {
-                if (hotel.Rating == 5 && hotel.Price > 2500)
+                if(hotel.CardType == "Chase Ink")
                 {
-                    hotel.CardType = "Chase Ink";
+                    hotel.Tags = TAG_CATEGORIES["business"].Concat(TAG_CATEGORIES["premium"]).ToList().OrderBy(_ => random.Next()).Take(5).ToList();
                 }
-                if (hotel.Rating == 5 && hotel.Price < 2500)
+                if (hotel.CardType == "Chase Freedom")
                 {
-                    hotel.CardType = "Chase Reserve";
+                    hotel.Tags = TAG_CATEGORIES["local"].OrderBy(_ => random.Next()).Take(5).ToList();
                 }
-                if (hotel.Rating == 4)
+                if (hotel.CardType == "Chase Sapphire")
                 {
-                    hotel.CardType = "Chase Sapphire";
+                    hotel.Tags = TAG_CATEGORIES["average"].OrderBy(_ => random.Next()).Take(5).ToList();
                 }
-                if (hotel.Rating == 3)
+                if (hotel.CardType == "Chase Reserve")
                 {
-                    hotel.CardType = "Chase Freedom";
+                    hotel.Tags = TAG_CATEGORIES["premium"].OrderBy(_ => random.Next()).Take(5).ToList();
                 }
             }
             string outputFilePath = "updated_hotels.json";
