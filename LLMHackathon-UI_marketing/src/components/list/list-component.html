@@ -1,0 +1,61 @@
+<button class="btn btn-primary" (click)="PublishHotels()">Publish</button>
+<br/><br/>
+<div class="panel panel-primary" *ngFor="let result of listResult">
+    <div class="panel-heading">
+            <h3 class="panel-title">
+                <input type="checkbox"  name="{{result.name}}"  id="{{result.name}}"
+                                            (change)="onChange($event, result.code)">&nbsp;{{result.name}}
+            </h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-xs-10">
+            <div class="row vertical-align" >
+                <div class="col-xs-4">
+                    <img class="imageClass" [src]="result.imageUrl" />
+                </div>
+                <div class="col-xs-8">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            CountryName
+                        </div>
+                        <div class="col-xs-6">
+                            : {{result.countryName}} &nbsp;[{{result.countryCode}}]
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            State
+                        </div>
+                        <div class="col-xs-6">
+                            : {{result.state}} &nbsp;[{{result.stateCode}}]
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            CityName
+                        </div>
+                        <div class="col-xs-6">
+                            : {{result.cityName}} &nbsp;[{{result.cityCode}}]
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Rating
+                        </div>
+                        <div class="col-xs-6">
+                            : {{result.rating}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {{result.description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- C:\~GitRepos\Project_Doc\Hackathon\llmHackathon\src\assets\images\Hotel1.jpg
+llmHackathon\src\assets\images\Hotel2.jpg -->
+
