@@ -1,0 +1,54 @@
+<div class='container'>
+  <div class="dropdown-container disabled">
+    <label class="padding-right-24" for="dataSource">Data Source:-</label>
+    <select class="padding-right-24" name="dataSource" id="dataSource" [(ngModel)]="dataSource">
+      <option value="Kevel">Hackathon</option>
+      <option value="Kevel">Kevel</option>
+      <option value="Cms">Cms</option>
+    </select>
+      <label class="padding-right-24" for="language">Language:-</label>
+    <select class="padding-right-24" name="language" id="language" [(ngModel)]="language">
+      <option value="en-us">en-us</option>
+      <option value="es-es">es-es</option>
+    </select>
+  <label class="padding-right-24" for="cardType">Card:-</label>
+<select class="padding-right-24" name="cardType" id="cardType" [(ngModel)]="cardType">
+  <option value="Ink">Ink</option>
+    <option value="Freedom">Freedom</option>
+    <option value="Reserve">Reserve</option>
+    <option value="Sapphire">Sapphire</option>
+</select>
+    <label class="padding-right-24" for="noOfVisibleCards">No Of Visible Cards:-</label>
+    <select class="padding-right-24" name="noOfVisibleCards" id="noOfVisibleCards" [(ngModel)]="noOfVisibleCards">
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+  </div>
+
+  <div>
+    <img class='image' src="https://images.contentstack.io/v3/assets/blt9f0879b5f414c2d0/blt4bc29a63abda48b4/67da6ee2ce729c516aae373b/chase_orxe_header.png" />
+  </div>
+
+  <!-- <div>
+    <web-component banner-type="Banner With Image And Text" [language]="language" [dataSource]="dataSource"></web-component>
+  </div> -->
+
+  <div class='carousel-container'>
+    <web-component banner-type="Carousel" is-mb [language]="language" [dataSource]="dataSource" [noOfVisibleCards]="noOfVisibleCards" [cardType]="cardType" [city]="city">
+    </web-component>
+  </div>
+
+  <!-- <div>
+    <img class='image' src="https://images.contentstack.io/v3/assets/blt9f0879b5f414c2d0/blt98a8130ca6888d7b/67c1a435f10771c0ac5d87ed/ChaseTravel_1.png" />
+  </div> -->
+
+  <!-- <div class='banner'>
+    <web-component banner-type="Banner With Text" [language]="language" [dataSource]="dataSource"></web-component>
+    </div> -->
+  
+  <div>
+    <img class='image' src='https://images.contentstack.io/v3/assets/blt9f0879b5f414c2d0/blt4692f8c1605996b8/67da6ee0a782ba91aa8dbdaa/chase_orxe_footer.png' />
+  </div>
+</div>

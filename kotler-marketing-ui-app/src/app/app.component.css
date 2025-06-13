@@ -1,0 +1,32 @@
+.App {
+    /* text-align: center; */
+    padding: 0 48px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .bannerType {
+    text-align: center;
+    padding: 24px 0;
+  }
+
+  .bannerTypeLabel{
+    padding-bottom: 24px;
+    font-weight: 600;
+  }
+
+  .padding-right-24{
+    margin-right: 24px;
+  }
+
+  .padding-left-184 {
+    padding-left: 184px;
+  }
+
+  :host app-banner-web-component, .web-component {
+    --bg-color: cornflowerblue;
+  }
+
+  .web-component{
+    text-align: center;
+    display: inline-block;
+  }

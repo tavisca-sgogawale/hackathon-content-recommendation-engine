@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+    /* max-width: 1360px; */
+    margin: auto;
+  }
+  
+  .banner{
+    width: 100%;
+    padding-bottom: 48px;
+  }
+  
+  .carousel-container {
+    width: 100%;
+    padding: 48px 0;
+    max-width: 1300px;
+  }
+  
+  web-component{
+    width: 100%;
+    margin-bottom: 48px;
+  }
+  
+  .image {
+    width: 100%;
+  }
+  
+  :host web-component {
+    --bg-color: rgb(255, 248, 232);
+  }
+
+  p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .padding-right-24{
+    margin-right: 24px;
+  }
+
+  .dropdown-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    background: cornsilk;
+    padding: 24px;
+    width: 100%;
+    margin-bottom: 24px;
+    z-index: 1;
+  }
+
+  .disabled {
+    display: none;
+  }

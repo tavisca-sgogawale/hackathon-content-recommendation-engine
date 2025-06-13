@@ -1,0 +1,8 @@
+{
+    "/api/orxe/v1.0/**": {
+      "target": "http://localhost:4200",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }

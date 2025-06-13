@@ -1,0 +1,42 @@
+<div class="App">
+    <div class="bannerType">
+      <h1>Angular Parent App</h1>
+    <!-- <label>
+      SessionId: 
+      <input [(ngModel)]=sessionId />
+    </label> -->
+      <label class="bannerTypeLabel padding-right-24">Banner Type:-</label>
+      <label class="padding-right-24">
+        <input type="radio" name="bannerType" value="banner_with_text" (change)="selectedBannerType = 'Banner With Text'"> Banner With Text
+      </label>
+      <label class='padding-right-24'>
+        <input type="radio" name="bannerType" value="banner_with_text_and_image" (change)="selectedBannerType = 'Banner With Image And Text'"> Banner With Image And Text
+      </label>
+      <label class='padding-right-24'>
+        <input type="radio" name="bannerType" value="carousel" (change)="selectedBannerType = 'Carousel'"> Carousel
+      </label>
+      <label class="bannerTypeLabel padding-right-24" for="dataSource">Data Source:-</label>
+    <select class="padding-right-24" name="dataSource" id="dataSource" [(ngModel)]="dataSource">
+      <option value="Kevel">Kevel</option>
+      <option value="Cms">Cms</option>
+    </select>
+      <label class="bannerTypeLabel padding-right-24" for="language">Language:-</label>
+    <select class="padding-right-24" name="language" id="language" [(ngModel)]="language">
+      <option value="en-us">en-us</option>
+      <option value="es-es">es-es</option>
+    </select>
+    <label *ngIf="selectedBannerType=='Carousel'" class="bannerTypeLabel padding-right-24" for="noOfVisibleCards">No Of Visible Cards:-</label>
+    <select *ngIf="selectedBannerType=='Carousel'" class="padding-right-24" name="noOfVisibleCards" id="noOfVisibleCards" [(ngModel)]="noOfVisibleCards">
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+  
+      <h2>{{ selectedBannerType }}</h2> 
+  </div>
+    <!-- <app-banner-web-component [bannerType]="selectedBannerType" [sessionId]="sessionId"></app-banner-web-component> -->
+     <div [ngClass]="{'web-component': selectedBannerType === ''}">
+    <web-component [bannerType]="selectedBannerType" [language]="language" [dataSource]="dataSource" [noOfVisibleCards]="noOfVisibleCards"></web-component>
+  </div></div>
+  
