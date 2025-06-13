@@ -23,9 +23,9 @@ namespace Hackathon.ContentRecommendation.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] HotelFilterRequest filterRequest, [FromQuery] int pageSize = 10)
+        public IActionResult Post([FromBody] HotelFilterRequest filterRequest)
         {
-            var hotels = _hotelService.GetFilteredRealHotels(filterRequest, pageSize);
+            var hotels = _hotelService.GetFilteredRealHotels(filterRequest, filterRequest.PageSize);
             return Ok(hotels);
         }
 

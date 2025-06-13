@@ -14,5 +14,6 @@ namespace Hackathon.ContentRecommendation.Common.Models
         public double? MaxPrice { get; set; }
         public double? MinRating { get; set; }
         public List<string>? Tags { get; set; }
+        public int PageSize { get; set; } = 5;
     }
 }
