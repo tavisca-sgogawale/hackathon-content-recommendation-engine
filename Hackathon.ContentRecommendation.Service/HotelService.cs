@@ -43,6 +43,7 @@ namespace Hackathon.ContentRecommendation.Service
             var hotels = HotelFileStore.Hotels;
             var filteredHotels = hotels.Where(h =>
             (string.IsNullOrEmpty(filterRequest.City) || CityMatches(h.CityName, filterRequest.City)) &&
+            (string.IsNullOrWhiteSpace(filterRequest.CardType) || h.CardType.Contains(filterRequest.CardType, StringComparison.OrdinalIgnoreCase)) &&
             (!filterRequest.MinPrice.HasValue || h.Price >= filterRequest.MinPrice) &&
             (!filterRequest.MaxPrice.HasValue || h.Price <= filterRequest.MaxPrice) &&
             (!filterRequest.MinRating.HasValue || h.Rating >= filterRequest.MinRating));
