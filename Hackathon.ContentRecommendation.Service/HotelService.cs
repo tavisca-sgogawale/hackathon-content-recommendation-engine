@@ -35,11 +35,27 @@ namespace Hackathon.ContentRecommendation.Service
             (!minRating.HasValue || h.Rating >= minRating)
         );
 
-            return filteredHotels.Take(size).ToList();
-
-
+            return [.. filteredHotels.Take(size)];
         }
-        private bool CityMatches(string hotelCity, string searchCityOrState)
+
+        public List<RealHotel> GetFilteredRealHotels(HotelFilterRequest filterRequest, int pageSize)
+        {
+            var hotels = HotelFileStore.Hotels;
+            var filteredHotels = hotels.Where(h =>
+            (string.IsNullOrEmpty(filterRequest.City) || CityMatches(h.CityName, filterRequest.City)) &&
+            (!filterRequest.MinPrice.HasValue || h.Price >= filterRequest.MinPrice) &&
+            (!filterRequest.MaxPrice.HasValue || h.Price <= filterRequest.MaxPrice) &&
+            (!filterRequest.MinRating.HasValue || h.Rating >= filterRequest.MinRating));
+
+            if (filterRequest.Tags != null && filterRequest.Tags.Any())
+            {
+                return [.. filteredHotels.Where(x => x.Tags.Contains(filterRequest.Tags[0])).Take(pageSize)];
+            }
+
+            return [.. filteredHotels.Take(pageSize)];
+        }
+
+        private static bool CityMatches(string hotelCity, string searchCityOrState)
         {
             var hotelParts = hotelCity.ToLower().Replace(",", "").Split(' ');
             var searchCityParts = searchCityOrState.ToLower().Replace(",", "").Split(' ');
