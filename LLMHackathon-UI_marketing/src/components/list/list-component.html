@@ -1,9 +1,14 @@
 <button class="btn btn-primary" (click)="PublishHotels()">Publish</button>
 <br/><br/>
+<span class="label label-info" *ngIf="publishStatus===true">
+    <i class="fa fa-info-circle"></i> Data Published Successfully!
+</span>
+<br/><br/>
+
 <div class="panel panel-primary" *ngFor="let result of listResult">
     <div class="panel-heading">
             <h3 class="panel-title">
-                <input type="checkbox"  name="{{result.name}}"  id="{{result.name}}"
+                <input type="checkbox"  name="{{result.name}}"  id="{{result.name}}" 
                                             (change)="onChange($event, result.code)">&nbsp;{{result.name}}
             </h3>
     </div>

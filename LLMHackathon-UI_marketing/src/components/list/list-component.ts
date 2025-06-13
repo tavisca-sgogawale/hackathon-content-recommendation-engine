@@ -15,6 +15,7 @@ export class ListComponent {
   tempArr: any[] = [];
   input: number = 0
   select: string = "Hotel List";
+  publishStatus: boolean = false;
   listResult: Template[] = [
     {
       code: 101,
@@ -75,7 +76,7 @@ export class ListComponent {
   ];
 
   PublishHotels() {
-      const filePath = 'output.txt'; // Specify the path where you want to save the file
+      const filePath = '../../../filteredData.json'; // Specify the path where you want to save the file
 
       // for (var val of this.tempArr) {
       //   console.log(val); // prints values: 10, 20, 30, 40
@@ -92,16 +93,23 @@ export class ListComponent {
 
       const filteredData = this.listResult.filter(item => this.tempArr.includes(item.code));
       
-      fs.writeFile('../../../filteredData.json', JSON.stringify(filteredData, null, 2), 'utf-8', (err) => {
-       if (err) {
-         console.error('Error writing to file:', err);
-       } else {
-         console.log('JSON data written to file successfully.');
-       }
-       
-      });
+      // fs.writeFile('../../../filteredData.json', JSON.stringify(filteredData, null, 2), 'utf-8', (err) => {
+      //  if (err) {
+      //    console.error('Error writing to file:', err);
+      //  } else {
+      //    console.log('JSON data written to file successfully.');
+      //  }
+      //});
 
-      console.log("Publish Hotels");
+      const file = new Blob([JSON.stringify(filteredData, null, 2)], { type: 'application/json' });
+      const fileURL = URL.createObjectURL(file);
+      const a = document.createElement('a');
+      a.href = fileURL;
+      a.download = 'filteredData.json';
+      document.body.appendChild(a);
+      a.click();  
+      console.log(filteredData);
+      this.publishStatus=true
       // Logic to publish hotels can be added here
   }
 
