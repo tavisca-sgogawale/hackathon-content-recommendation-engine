@@ -45,5 +45,8 @@ namespace Hackathon.ContentRecommendation.Common.Models
         public string ImageUrl { get; set; }
         [JsonPropertyName("price")]
         public double Price { get; set; }
+
+        [JsonPropertyName("cardType")]
+        public string CardType { get; set; }
     }
 }

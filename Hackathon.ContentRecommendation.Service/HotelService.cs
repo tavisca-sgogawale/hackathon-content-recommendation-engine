@@ -24,21 +24,21 @@ namespace Hackathon.ContentRecommendation.Service
         //    return filteredHotels.Take(5).ToList();
         //}
 
-        public List<RealHotel> GetFilteredRealHotels(string? city, double? minPrice, double? maxPrice, double? minRating)
+        public List<RealHotel> GetFilteredRealHotels(string? city, double? minPrice, double? maxPrice, double? minRating, string cardType, int size = 15)
         {
             var hotels = HotelFileStore.Hotels;
             var filteredHotels = hotels.Where(h =>
             (string.IsNullOrEmpty(city) || CityMatches(h.CityName, city)) &&
+            (string.IsNullOrEmpty(cardType) || h.CardType.Contains(cardType, StringComparison.OrdinalIgnoreCase)) &&
             (!minPrice.HasValue || h.Price >= minPrice) &&
             (!maxPrice.HasValue || h.Price <= maxPrice) &&
             (!minRating.HasValue || h.Rating >= minRating)
         );
 
-            return filteredHotels.Take(5).ToList();
+            return filteredHotels.Take(size).ToList();
 
 
         }
-
         private bool CityMatches(string hotelCity, string searchCityOrState)
         {
             var hotelParts = hotelCity.ToLower().Replace(",", "").Split(' ');
